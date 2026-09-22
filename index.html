@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#05060f" />
+  <meta name="description" content="Space Survivor - a fast, polished arcade game where you pilot a rocket through an asteroid field. Survive as long as you can!" />
+  <title>Space Survivor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-shell">
+    <!-- Game canvas -->
+    <canvas id="game-canvas" aria-label="Space survival game area" role="img"></canvas>
+
+    <!-- Heads-up display -->
+    <div id="hud" class="hidden" aria-hidden="true">
+      <div class="hud-row">
+        <div class="hud-left">
+          <div class="hud-score">SCORE <span id="score">0</span></div>
+          <div class="hud-high">HIGH <span id="hud-high-score">0</span></div>
+        </div>
+        <div class="hud-center">
+          <div class="hud-level">LEVEL <span id="level">1</span></div>
+        </div>
+        <div class="hud-right">
+          <div id="lives" class="lives" aria-label="Lives remaining"></div>
+        </div>
+      </div>
+      <!-- Active power-up indicators -->
+      <div id="powerup-bar" class="powerup-bar"></div>
+    </div>
+
+    <!-- Top control buttons (pause / mute) -->
+    <div id="top-controls" class="hidden">
+      <button id="pause-btn" class="icon-btn" aria-label="Pause game" title="Pause (P)">II</button>
+      <button id="mute-btn" class="icon-btn" aria-label="Toggle sound" title="Mute">♪</button>
+    </div>
+
+    <!-- Start screen -->
+    <div id="start-screen" class="overlay">
+      <div class="overlay-inner">
+        <h1 class="title">SPACE<span>SURVIVOR</span></h1>
+        <p class="subtitle">Survive the asteroid field!</p>
+        <button id="start-btn" class="btn btn-primary">START GAME</button>
+        <div class="controls-hint">
+          <p><strong>Move</strong> Arrow Keys / WASD / Mouse / Touch</p>
+          <p><strong>Shoot</strong> Space &nbsp;·&nbsp; <strong>Pause</strong> P</p>
+        </div>
+        <p class="best-line">Best Score: <span id="start-high-score">0</span></p>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div id="countdown" class="overlay hidden">
+      <div id="countdown-number">3</div>
+    </div>
+
+    <!-- Pause screen -->
+    <div id="pause-screen" class="overlay hidden">
+      <div class="overlay-inner">
+        <h2 class="title-sm">PAUSED</h2>
+        <button id="resume-btn" class="btn btn-primary">RESUME</button>
+        <button id="quit-btn" class="btn btn-ghost">QUIT TO MENU</button>
+      </div>
+    </div>
+
+    <!-- Game over screen -->
+    <div id="gameover-screen" class="overlay hidden">
+      <div class="overlay-inner">
+        <h2 class="title-sm danger">GAME OVER</h2>
+        <p class="subtitle">Your rocket was destroyed</p>
+        <div class="score-panel">
+          <div class="score-block">
+            <span class="score-label">SCORE</span>
+            <span id="final-score" class="score-value">0</span>
+          </div>
+          <div class="score-block">
+            <span class="score-label">HIGH SCORE</span>
+            <span id="final-high-score" class="score-value">0</span>
+          </div>
+        </div>
+        <p id="new-record" class="new-record hidden">NEW RECORD!</p>
+        <button id="restart-btn" class="btn btn-primary">PLAY AGAIN</button>
+      </div>
+    </div>
+
+    <!-- Mobile shoot button -->
+    <button id="shoot-btn" class="shoot-btn hidden" aria-label="Shoot">FIRE</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
